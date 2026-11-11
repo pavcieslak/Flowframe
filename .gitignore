@@ -1,0 +1,6 @@
+dist/
+*.ccx
+.DS_Store
+Thumbs.db
+__MACOSX/
+node_modules/

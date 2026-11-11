@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  body { color: #d6d6d6; font-size: 12px; padding: 10px; margin: 0; background: transparent; }
+  h3 { font-size: 11px; text-transform: uppercase; letter-spacing: .6px; color: #9a9a9a; margin: 14px 0 6px; font-weight: 600; }
+  .row { display: flex; align-items: center; gap: 6px; margin-bottom: 6px; }
+  .row label { width: 62px; color: #b5b5b5; }
+  .grid4 { display: flex; gap: 4px; }
+  .grid4 div { display: flex; flex-direction: column; align-items: center; flex: 1; }
+  .grid4 span { font-size: 10px; color: #8a8a8a; }
+  input[type=number] { width: 100%; }
+  select { flex: 1; }
+  button { margin: 0 4px 4px 0; }
+  .seg { display: flex; gap: 2px; flex: 1; }
+  .seg button { flex: 1; margin: 0; padding: 2px 0; }
+  .seg button.on { background: #2680eb; color: #fff; border-color: #2680eb; }
+  #status { color: #9a9a9a; margin: 4px 0 8px; min-height: 16px; }
+  #status.al { color: #6fb5ff; }
+  #msg { color: #e8a33d; min-height: 14px; margin-top: 8px; font-size: 11px; }
+  .hidden { display: none; }
+  .check { display: flex; align-items: center; gap: 6px; margin-bottom: 6px; }
+  hr { border: 0; border-top: 1px solid #444; margin: 12px 0; }
+</style>
+</head>
+<body>
+  <div id="status">Select a group or several objects.</div>
+
+  <div id="createBox">
+    <button id="btnCreate">Add auto layout</button>
+  </div>
+
+  <div id="settingsBox" class="hidden">
+    <h3>Layout</h3>
+    <div class="row"><label>Direction</label>
+      <div class="seg" id="segDir"><button data-v="V">↓ Vertical</button><button data-v="H">→ Horizontal</button></div>
+    </div>
+    <div class="row"><label>Gap (pt)</label><input type="number" id="gap" step="1"></div>
+    <div class="row"><label>Spacing</label>
+      <select id="justify">
+        <option value="start">Packed – start</option>
+        <option value="center">Packed – centre</option>
+        <option value="end">Packed – end</option>
+        <option value="between">Space between</option>
+      </select>
+    </div>
+    <div class="row"><label>Align</label>
+      <div class="seg" id="segAlign"><button data-v="start">Start</button><button data-v="center">Centre</button><button data-v="end">End</button></div>
+    </div>
+
+    <h3>Padding (pt)</h3>
+    <div class="grid4">
+      <div><input type="number" id="pt"><span>Top</span></div>
+      <div><input type="number" id="pr"><span>Right</span></div>
+      <div><input type="number" id="pb"><span>Bottom</span></div>
+      <div><input type="number" id="pl"><span>Left</span></div>
+    </div>
+
+    <h3>Size</h3>
+    <div class="row"><label>Width</label>
+      <select id="wMode"><option value="hug">Hug contents</option><option value="fixed">Fixed</option></select>
+      <input type="number" id="w" style="width:64px">
+    </div>
+    <div class="row"><label>Height</label>
+      <select id="hMode"><option value="hug">Hug contents</option><option value="fixed">Fixed</option></select>
+      <input type="number" id="h" style="width:64px">
+    </div>
+
+    <h3>Background</h3>
+    <div id="bgInfo" style="margin-bottom:6px;color:#9a9a9a"></div>
+    <button id="btnBg">Add background frame</button>
+
+    <hr>
+    <button id="btnReflow">Reflow</button>
+    <button id="btnRemove">Remove auto layout</button>
+  </div>
+
+  <div id="childBox" class="hidden">
+    <h3>Selected child</h3>
+    <div class="check"><input type="checkbox" id="fill"><span>Fill container (cross axis)</span></div>
+    <div class="check"><input type="checkbox" id="absolute"><span>Ignore auto layout (absolute)</span></div>
+    <div class="check"><input type="checkbox" id="asBg"><span>Use as background frame</span></div>
+    <button id="btnHug" class="hidden">Make text frame hug its text</button>
+  </div>
+
+  <hr>
+  <div class="check"><input type="checkbox" id="auto"><span>Auto-reflow when contents change</span></div>
+  <button id="btnReflowAll">Reflow all on this spread</button>
+  <div id="msg"></div>
+
+  <script src="index.js"></script>
+</body>
+</html>
