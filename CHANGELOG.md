@@ -2,6 +2,11 @@
 
 All notable changes to Flowframe are documented here. The project follows [Semantic Versioning](https://semver.org/).
 
+## [1.2.1] – 2026-11-11
+### Fixed
+- The Direction and Align icons were invisible in InDesign, because UXP doesn't render inline SVG inside buttons. They are now PNG images, with @2x versions for sharp displays.
+- Hugged width and height are shown with at most one decimal place, so the value fits in the field.
+
 ## [1.2.0] – 2026-11-11
 ### Added
 - Menu commands under **Plugins → Flowframe**: *Add auto layout*, *Remove auto layout*, *Reflow selected auto layout* and *Reflow all on this spread*. You can assign keyboard shortcuts to them in **Edit → Keyboard Shortcuts**, e.g. <kbd>Shift</kbd>+<kbd>A</kbd> as in Figma.
@@ -26,6 +31,7 @@ All notable changes to Flowframe are documented here. The project follows [Seman
 - Options for a child item: fill container, ignore auto layout (absolute), use as background, hug text.
 - Nested auto layouts, ordering by position, optional auto-reflow, and one undo step per change.
 
+[1.2.1]: https://github.com/pavcieslak/Flowframe/releases/tag/v1.2.1
 [1.2.0]: https://github.com/pavcieslak/Flowframe/releases/tag/v1.2.0
 [1.1.0]: https://github.com/pavcieslak/Flowframe/releases/tag/v1.1.0
 [1.0.1]: https://github.com/pavcieslak/Flowframe/releases/tag/v1.0.1
