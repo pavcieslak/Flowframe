@@ -22,6 +22,8 @@
   .seg.icons { flex: 0 0 auto; }
   .seg.icons button { flex: 0 0 auto; min-width: 0; width: 30px; height: 24px; padding: 0; margin: 0; display: flex; align-items: center; justify-content: center; border-radius: 4px; }
   .seg.icons button img { display: block; width: 16px; height: 16px; }
+  .seg.text { flex: 1 1 auto; min-width: 0; }
+  .seg.text button { flex: 1 1 0; min-width: 0; margin: 0; padding: 2px 4px; font-size: 11px; }
   .seg button.on { background: #2680eb; color: #fff; border-color: #2680eb; }
   #status { color: #9a9a9a; margin: 2px 0 8px; min-height: 16px; overflow-wrap: anywhere; }
   #status.al { color: #6fb5ff; }
@@ -55,7 +57,7 @@
       </select>
     </div>
     <div class="row"><label>Align</label>
-      <div class="seg icons" id="segAlign"><button data-v="start" title="Align start (left / top)"><img class="alignIcon" data-pos="start" src="icons/align-v-start.png" width="16" height="16"></button><button data-v="center" title="Align centre"><img class="alignIcon" data-pos="center" src="icons/align-v-center.png" width="16" height="16"></button><button data-v="end" title="Align end (right / bottom)"><img class="alignIcon" data-pos="end" src="icons/align-v-end.png" width="16" height="16"></button></div>
+      <div class="seg text" id="segAlign"><button data-v="start" title="Align start (left / top)"><span class="alignTxt" data-pos="start">Left</span></button><button data-v="center" title="Align centre"><span class="alignTxt" data-pos="center">Centre</span></button><button data-v="end" title="Align end (right / bottom)"><span class="alignTxt" data-pos="end">Right</span></button></div>
     </div>
 
     <h3>Padding</h3>

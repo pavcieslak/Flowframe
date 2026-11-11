@@ -2,6 +2,10 @@
 
 All notable changes to Flowframe are documented here. The project follows [Semantic Versioning](https://semver.org/).
 
+## [1.2.5] – 2026-11-11
+### Changed
+- Align buttons now use text labels instead of icons, because UXP in InDesign didn't render the icons. The labels follow the direction: **Left / Centre / Right** for vertical layouts and **Top / Middle / Bottom** for horizontal ones.
+
 ## [1.2.4] – 2026-11-11
 ### Fixed
 - Align icons were still invisible in InDesign. Each button now holds a single image, swapped when the direction changes; UXP didn't render images nested in hidden or visible spans inside buttons.
@@ -48,6 +52,7 @@ All notable changes to Flowframe are documented here. The project follows [Seman
 - Options for a child item: fill container, ignore auto layout (absolute), use as background, hug text.
 - Nested auto layouts, ordering by position, optional auto-reflow, and one undo step per change.
 
+[1.2.5]: https://github.com/pavcieslak/Flowframe/releases/tag/v1.2.5
 [1.2.4]: https://github.com/pavcieslak/Flowframe/releases/tag/v1.2.4
 [1.2.3]: https://github.com/pavcieslak/Flowframe/releases/tag/v1.2.3
 [1.2.2]: https://github.com/pavcieslak/Flowframe/releases/tag/v1.2.2

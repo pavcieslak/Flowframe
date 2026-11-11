@@ -359,7 +359,8 @@ function refresh(force) {
   $("status").textContent = (child ? "Inside auto layout: " : "Auto layout: ") + (group.name || "Group") + " · " + children(group).length + " items";
   $("status").className = "al";
   setSeg("segDir", s.dir); setSeg("segAlign", s.align);
-  document.querySelectorAll("#segAlign img.alignIcon").forEach((im) => { im.src = "icons/align-" + (s.dir === "V" ? "v" : "h") + "-" + im.dataset.pos + ".png"; });
+  const ALIGN_TXT = s.dir === "V" ? { start: "Left", center: "Centre", end: "Right" } : { start: "Top", center: "Middle", end: "Bottom" };
+  document.querySelectorAll("#segAlign .alignTxt").forEach((el) => { el.textContent = ALIGN_TXT[el.dataset.pos]; });
   const put = (k, v) => { if (editing !== k) $(k).value = v; };
   put("gap", s.gap); $("justify").value = s.justify;
   ["pt", "pr", "pb", "pl"].forEach((k) => put(k, s[k]));
