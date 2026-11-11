@@ -1,5 +1,7 @@
 # Flowframe
 
+![Version](https://img.shields.io/badge/version-1.1.0-2680eb) ![InDesign](https://img.shields.io/badge/InDesign-18.5%2B-ff3366) ![License](https://img.shields.io/badge/license-MIT-green)
+
 **Figma-style auto layout for Adobe InDesign.** Group elements, then set the direction, gap, padding, alignment and hug or fixed sizing, the same way you would on a Figma frame.
 
 ![Flowframe panel in InDesign](docs/screenshot.png)
@@ -106,6 +108,10 @@ A `.ccx` file is a zip archive of the plugin folder:
 - [ ] *Fill* for nested groups.
 - [ ] Per-item min and max sizes.
 - [ ] Spacing presets, or tokens shared across a document.
+
+## Changelog
+
+Current version: **1.1.0**. The full history is in [CHANGELOG.md](CHANGELOG.md).
 
 ## Author
 
