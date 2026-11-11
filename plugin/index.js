@@ -368,7 +368,8 @@ function refresh(force) {
   put("w", String(Math.round(s.w * 10) / 10)); put("h", String(Math.round(s.h * 10) / 10));
   $("w").disabled = s.wMode !== "fixed"; $("h").disabled = s.hMode !== "fixed";
   const hasBg = children(group).some((k) => label(k, KEY_BG) === "1");
-  $("bgInfo").textContent = hasBg ? "Has a background frame (resizes with the layout)." : "No background frame — padding and fixed size are virtual.";
+  $("bgInfo").textContent = hasBg ? "Frame resizes with layout" : "None";
+  $("bgInfo").title = hasBg ? "" : "Without a background frame, padding and fixed size are virtual.";
   $("btnBg").classList.toggle("hidden", hasBg);
   if (child) {
     $("fill").checked = label(child, KEY_FILL) === "1";

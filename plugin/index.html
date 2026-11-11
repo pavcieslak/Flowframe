@@ -4,101 +4,106 @@
 <meta charset="utf-8">
 <style>
   * { box-sizing: border-box; }
-  body { color: #d6d6d6; font-size: 12px; padding: 8px; margin: 0; background: transparent; overflow-x: hidden; }
-  h3 { font-size: 11px; text-transform: uppercase; letter-spacing: .6px; color: #9a9a9a; margin: 12px 0 6px; font-weight: 600; }
-  .row { display: flex; align-items: center; gap: 6px; margin-bottom: 6px; min-width: 0; }
-  .row label { flex: 0 0 52px; color: #b5b5b5; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .row input, .row select { flex: 1 1 auto; min-width: 0; width: auto; }
-  .row input.num { flex: none; width: 56px; }
-  .grid4 { display: flex; justify-content: space-between; }
-  .grid4 div { display: flex; flex-direction: column; flex: none; width: 23.5%; min-width: 0; }
-  .grid4 input { width: 100%; min-width: 0; }
-  .grid4 span { font-size: 10px; color: #8a8a8a; text-align: center; }
-  input[type=text] { min-width: 0; }
-  button { min-width: 0; }
-  .actions { display: flex; flex-wrap: wrap; gap: 4px; }
-  .actions button { flex: 1 1 auto; margin: 0; }
-  .seg { display: flex; gap: 2px; }
-  .seg.icons { flex: 0 0 auto; }
-  .seg.icons button { flex: 0 0 auto; min-width: 0; width: 30px; height: 24px; padding: 0; margin: 0; display: flex; align-items: center; justify-content: center; border-radius: 4px; }
-  .seg.icons button img { display: block; width: 16px; height: 16px; }
-  .seg.text { flex: 1 1 auto; min-width: 0; }
-  .seg.text button { flex: 1 1 0; min-width: 0; margin: 0; padding: 2px 4px; font-size: 11px; }
+  body { color: #d6d6d6; font-size: 11px; padding: 8px 8px 10px; margin: 0; background: transparent; overflow-x: hidden; }
+  .sec { font-size: 10px; text-transform: uppercase; letter-spacing: .5px; color: #8f8f8f; font-weight: 700; margin: 10px 0 5px; }
+  .sec small { text-transform: none; font-weight: 400; letter-spacing: 0; color: #7a7a7a; }
+  .row { display: flex; flex-direction: row; align-items: center; width: 100%; margin-bottom: 5px; }
+  .lbl { flex: none; width: 46px; color: #a9a9a9; overflow: hidden; white-space: nowrap; }
+  .grow { flex: 1 1 auto; min-width: 0; width: 10px; }
+  input[type=text] { height: 22px; min-width: 0; font-size: 11px; }
+  select { height: 22px; min-width: 0; font-size: 11px; }
+  .num { flex: none; width: 50px; margin-left: 4px; }
+  button { min-width: 0; height: 22px; font-size: 11px; padding: 0 8px; margin: 0; }
+  .seg { display: flex; flex-direction: row; }
+  .seg button { margin-right: 2px; }
+  .seg button:last-child { margin-right: 0; }
   .seg button.on { background: #2680eb; color: #fff; border-color: #2680eb; }
-  #status { color: #9a9a9a; margin: 2px 0 8px; min-height: 16px; overflow-wrap: anywhere; }
+  #segDir button { width: 28px; padding: 0; display: flex; align-items: center; justify-content: center; }
+  #segDir img { width: 16px; height: 16px; }
+  #segAlign { flex: 1 1 auto; min-width: 0; width: 10px; }
+  #segAlign button { flex: 1 1 0; width: 10px; padding: 0 2px; }
+  .gapLbl { flex: none; color: #a9a9a9; margin: 0 4px 0 10px; }
+  .pad { display: flex; flex-direction: row; flex-wrap: wrap; width: 100%; }
+  .pad .cell { display: flex; flex-direction: row; align-items: center; width: 50%; margin-bottom: 5px; }
+  .pad .cell:nth-child(odd) { padding-right: 4px; }
+  .pad .cell:nth-child(even) { padding-left: 4px; }
+  .pad .cell span { flex: none; width: 40px; color: #a9a9a9; }
+  .pad .cell input { flex: 1 1 auto; width: 10px; }
+  .full { width: 100%; }
+  .two { display: flex; flex-direction: row; width: 100%; }
+  .two button { flex: 1 1 0; width: 10px; }
+  .two button:first-child { margin-right: 4px; }
+  #status { color: #9a9a9a; margin: 0 0 6px; overflow-wrap: anywhere; }
   #status.al { color: #6fb5ff; }
-  #msg { color: #e8a33d; min-height: 14px; margin-top: 8px; font-size: 11px; overflow-wrap: anywhere; }
+  #bgInfo { color: #8f8f8f; flex: 1 1 auto; min-width: 0; width: 10px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+  #msg { color: #e8a33d; margin-top: 6px; overflow-wrap: anywhere; }
   .hidden { display: none; }
-  .check { display: flex; align-items: flex-start; gap: 6px; margin-bottom: 6px; }
+  .check { display: flex; flex-direction: row; align-items: center; margin-bottom: 5px; }
+  .check input { flex: none; margin: 0 6px 0 0; }
   .check span { flex: 1 1 auto; min-width: 0; }
-  hr { border: 0; border-top: 1px solid #444; margin: 10px 0; }
-  .note { color: #8a8a8a; font-size: 10px; margin-top: 10px; overflow-wrap: anywhere; }
+  hr { border: 0; border-top: 1px solid #444; margin: 10px 0 8px; }
+  .note { color: #7a7a7a; font-size: 10px; margin-top: 8px; overflow-wrap: anywhere; }
 </style>
 </head>
 <body>
   <div id="status">Select a group or several objects.</div>
-
-  <div id="createBox">
-    <button id="btnCreate">Add auto layout</button>
-  </div>
+  <div id="createBox"><button id="btnCreate" class="full">Add auto layout</button></div>
 
   <div id="settingsBox" class="hidden">
-    <h3>Layout <span style="text-transform:none;font-weight:400">(values in pt)</span></h3>
-    <div class="row"><label>Direction</label>
-      <div class="seg icons" id="segDir"><button data-v="V" title="Vertical layout"><img src="icons/dir-v.png" width="16" height="16"></button><button data-v="H" title="Horizontal layout"><img src="icons/dir-h.png" width="16" height="16"></button></div>
+    <div class="sec">Layout <small>· pt</small></div>
+    <div class="row">
+      <div class="seg" id="segDir"><button data-v="V" title="Vertical"><img src="icons/dir-v.png" width="16" height="16"></button><button data-v="H" title="Horizontal"><img src="icons/dir-h.png" width="16" height="16"></button></div>
+      <span class="gapLbl">Gap</span><input type="text" id="gap" class="grow">
     </div>
-    <div class="row"><label>Gap</label><input type="text" id="gap" step="1"></div>
-    <div class="row"><label>Spacing</label>
-      <select id="justify">
+    <div class="row"><span class="lbl">Align</span>
+      <div class="seg" id="segAlign"><button data-v="start"><span class="alignTxt" data-pos="start">Left</span></button><button data-v="center"><span class="alignTxt" data-pos="center">Centre</span></button><button data-v="end"><span class="alignTxt" data-pos="end">Right</span></button></div>
+    </div>
+    <div class="row"><span class="lbl">Spacing</span>
+      <select id="justify" class="grow">
         <option value="start">Packed – start</option>
         <option value="center">Packed – centre</option>
         <option value="end">Packed – end</option>
         <option value="between">Space between</option>
       </select>
     </div>
-    <div class="row"><label>Align</label>
-      <div class="seg text" id="segAlign"><button data-v="start" title="Align start (left / top)"><span class="alignTxt" data-pos="start">Left</span></button><button data-v="center" title="Align centre"><span class="alignTxt" data-pos="center">Centre</span></button><button data-v="end" title="Align end (right / bottom)"><span class="alignTxt" data-pos="end">Right</span></button></div>
+
+    <div class="sec">Padding</div>
+    <div class="pad">
+      <div class="cell"><span>Top</span><input type="text" id="pt"></div>
+      <div class="cell"><span>Bottom</span><input type="text" id="pb"></div>
+      <div class="cell"><span>Left</span><input type="text" id="pl"></div>
+      <div class="cell"><span>Right</span><input type="text" id="pr"></div>
     </div>
 
-    <h3>Padding</h3>
-    <div class="grid4">
-      <div><input type="text" id="pt"><span>Top</span></div>
-      <div><input type="text" id="pr"><span>Right</span></div>
-      <div><input type="text" id="pb"><span>Bottom</span></div>
-      <div><input type="text" id="pl"><span>Left</span></div>
-    </div>
-
-    <h3>Size</h3>
-    <div class="row"><label>Width</label>
-      <select id="wMode"><option value="hug">Hug contents</option><option value="fixed">Fixed</option></select>
+    <div class="sec">Size</div>
+    <div class="row"><span class="lbl">Width</span>
+      <select id="wMode" class="grow"><option value="hug">Hug</option><option value="fixed">Fixed</option></select>
       <input type="text" id="w" class="num">
     </div>
-    <div class="row"><label>Height</label>
-      <select id="hMode"><option value="hug">Hug contents</option><option value="fixed">Fixed</option></select>
+    <div class="row"><span class="lbl">Height</span>
+      <select id="hMode" class="grow"><option value="hug">Hug</option><option value="fixed">Fixed</option></select>
       <input type="text" id="h" class="num">
     </div>
 
-    <h3>Background</h3>
-    <div id="bgInfo" style="margin-bottom:6px;color:#9a9a9a"></div>
-    <button id="btnBg">Add background frame</button>
+    <div class="sec">Background</div>
+    <div class="row"><span id="bgInfo"></span><button id="btnBg" style="margin-left:4px">Add</button></div>
 
-    <hr>
-    <div class="actions"><button id="btnReflow">Reflow</button><button id="btnRemove">Remove</button></div>
+    <div class="two" style="margin-top:8px"><button id="btnReflow">Reflow</button><button id="btnRemove">Remove</button></div>
   </div>
 
   <div id="childBox" class="hidden">
-    <h3>Selected child</h3>
-    <div class="check"><input type="checkbox" id="fill"><span>Fill container (cross axis)</span></div>
-    <div class="check"><input type="checkbox" id="absolute"><span>Ignore auto layout (absolute)</span></div>
-    <div class="check"><input type="checkbox" id="asBg"><span>Use as background frame</span></div>
-    <button id="btnHug" class="hidden">Make text frame hug its text</button>
+    <div class="sec">Selected item</div>
+    <div class="check"><input type="checkbox" id="fill"><span>Fill container width</span></div>
+    <div class="check"><input type="checkbox" id="absolute"><span>Ignore auto layout</span></div>
+    <div class="check"><input type="checkbox" id="asBg"><span>Use as background</span></div>
+    <button id="btnHug" class="hidden full">Hug text</button>
   </div>
 
   <hr>
-  <div class="check"><input type="checkbox" id="auto"><span>Auto-reflow when contents change</span></div>
-  <div class="actions"><button id="btnReflowAll">Reflow all on spread</button></div>
+  <div class="check"><input type="checkbox" id="auto"><span>Auto-reflow</span></div>
+  <button id="btnReflowAll" class="full">Reflow all on spread</button>
   <div id="msg"></div>
-  <div class="note">Shortcuts: Edit › Keyboard Shortcuts › Plug-ins › Flowframe (e.g. Shift+A to add auto layout)</div>
+  <div class="note">Shortcuts: Edit › Keyboard Shortcuts › Plug-ins › Flowframe</div>
 
   <script src="index.js"></script>
 </body>

@@ -2,6 +2,17 @@
 
 All notable changes to Flowframe are documented here. The project follows [Semantic Versioning](https://semver.org/).
 
+## [1.3.0] – 2026-11-11
+### Changed
+- The panel has a new compact, responsive layout that fits panels from 200 px wide:
+  - Direction and Gap share one row.
+  - Padding is a 2×2 grid (Top / Bottom, Left / Right).
+  - Size uses Hug / Fixed dropdowns with a value field.
+  - Background takes a single line.
+  - Reflow and Remove sit side by side.
+- The layout no longer uses CSS `gap`, which UXP supports inconsistently. Explicit widths stop fields and buttons from overflowing.
+- Labels are shorter throughout.
+
 ## [1.2.5] – 2026-11-11
 ### Changed
 - Align buttons now use text labels instead of icons, because UXP in InDesign didn't render the icons. The labels follow the direction: **Left / Centre / Right** for vertical layouts and **Top / Middle / Bottom** for horizontal ones.
@@ -52,6 +63,7 @@ All notable changes to Flowframe are documented here. The project follows [Seman
 - Options for a child item: fill container, ignore auto layout (absolute), use as background, hug text.
 - Nested auto layouts, ordering by position, optional auto-reflow, and one undo step per change.
 
+[1.3.0]: https://github.com/pavcieslak/Flowframe/releases/tag/v1.3.0
 [1.2.5]: https://github.com/pavcieslak/Flowframe/releases/tag/v1.2.5
 [1.2.4]: https://github.com/pavcieslak/Flowframe/releases/tag/v1.2.4
 [1.2.3]: https://github.com/pavcieslak/Flowframe/releases/tag/v1.2.3
