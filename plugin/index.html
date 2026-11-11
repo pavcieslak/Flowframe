@@ -10,7 +10,7 @@
   .grid4 { display: flex; gap: 4px; }
   .grid4 div { display: flex; flex-direction: column; align-items: center; flex: 1; }
   .grid4 span { font-size: 10px; color: #8a8a8a; }
-  input[type=number] { width: 100%; }
+  input[type=text] { width: 100%; box-sizing: border-box; }
   select { flex: 1; }
   button { margin: 0 4px 4px 0; }
   .seg { display: flex; gap: 2px; flex: 1; }
@@ -36,7 +36,7 @@
     <div class="row"><label>Direction</label>
       <div class="seg" id="segDir"><button data-v="V">↓ Vertical</button><button data-v="H">→ Horizontal</button></div>
     </div>
-    <div class="row"><label>Gap (pt)</label><input type="number" id="gap" step="1"></div>
+    <div class="row"><label>Gap (pt)</label><input type="text" inputmode="decimal" id="gap" step="1"></div>
     <div class="row"><label>Spacing</label>
       <select id="justify">
         <option value="start">Packed – start</option>
@@ -51,20 +51,20 @@
 
     <h3>Padding (pt)</h3>
     <div class="grid4">
-      <div><input type="number" id="pt"><span>Top</span></div>
-      <div><input type="number" id="pr"><span>Right</span></div>
-      <div><input type="number" id="pb"><span>Bottom</span></div>
-      <div><input type="number" id="pl"><span>Left</span></div>
+      <div><input type="text" inputmode="decimal" id="pt"><span>Top</span></div>
+      <div><input type="text" inputmode="decimal" id="pr"><span>Right</span></div>
+      <div><input type="text" inputmode="decimal" id="pb"><span>Bottom</span></div>
+      <div><input type="text" inputmode="decimal" id="pl"><span>Left</span></div>
     </div>
 
     <h3>Size</h3>
     <div class="row"><label>Width</label>
       <select id="wMode"><option value="hug">Hug contents</option><option value="fixed">Fixed</option></select>
-      <input type="number" id="w" style="width:64px">
+      <input type="text" inputmode="decimal" id="w" style="width:64px">
     </div>
     <div class="row"><label>Height</label>
       <select id="hMode"><option value="hug">Hug contents</option><option value="fixed">Fixed</option></select>
-      <input type="number" id="h" style="width:64px">
+      <input type="text" inputmode="decimal" id="h" style="width:64px">
     </div>
 
     <h3>Background</h3>

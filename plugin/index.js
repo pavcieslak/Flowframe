@@ -359,10 +359,11 @@ function refresh(force) {
   $("status").textContent = (child ? "Inside auto layout: " : "Auto layout: ") + (group.name || "Group") + " · " + children(group).length + " items";
   $("status").className = "al";
   setSeg("segDir", s.dir); setSeg("segAlign", s.align);
-  $("gap").value = s.gap; $("justify").value = s.justify;
-  ["pt", "pr", "pb", "pl"].forEach((k) => $(k).value = s[k]);
+  const put = (k, v) => { if (editing !== k) $(k).value = v; };
+  put("gap", s.gap); $("justify").value = s.justify;
+  ["pt", "pr", "pb", "pl"].forEach((k) => put(k, s[k]));
   $("wMode").value = s.wMode; $("hMode").value = s.hMode;
-  $("w").value = s.w; $("h").value = s.h;
+  put("w", s.w); put("h", s.h);
   $("w").disabled = s.wMode !== "fixed"; $("h").disabled = s.hMode !== "fixed";
   const hasBg = children(group).some((k) => label(k, KEY_BG) === "1");
   $("bgInfo").textContent = hasBg ? "Has a background frame (resizes with the layout)." : "No background frame — padding and fixed size are virtual.";
@@ -387,13 +388,10 @@ function wire() {
   $("absolute").addEventListener("change", (e) => safe(() => setChildFlag(KEY_ABS, e.target.checked)));
   document.querySelectorAll("#segDir button").forEach((b) => b.addEventListener("click", () => safe(() => update({ dir: b.dataset.v }))));
   document.querySelectorAll("#segAlign button").forEach((b) => b.addEventListener("click", () => safe(() => update({ align: b.dataset.v }))));
-  $("gap").addEventListener("change", (e) => safe(() => update({ gap: num(e.target.value, 0) })));
+  [["gap", 0], ["pt", 0], ["pr", 0], ["pb", 0], ["pl", 0], ["w", 100], ["h", 100]].forEach(([k, d]) => bindNumber(k, d));
   $("justify").addEventListener("change", (e) => safe(() => update({ justify: e.target.value })));
-  ["pt", "pr", "pb", "pl"].forEach((k) => $(k).addEventListener("change", (e) => safe(() => update({ [k]: num(e.target.value, 0) }))));
   $("wMode").addEventListener("change", (e) => safe(() => update({ wMode: e.target.value })));
   $("hMode").addEventListener("change", (e) => safe(() => update({ hMode: e.target.value })));
-  $("w").addEventListener("change", (e) => safe(() => update({ w: num(e.target.value, 100) })));
-  $("h").addEventListener("change", (e) => safe(() => update({ h: num(e.target.value, 100) })));
   $("auto").addEventListener("change", (e) => {
     try { localStorage.setItem("al.auto", e.target.checked ? "1" : ""); } catch (er) {}
     sigCache.clear();
@@ -403,6 +401,24 @@ function wire() {
   setInterval(() => { if (!busy) { try { refresh(false); } catch (e) {} } }, 400);
   setInterval(() => { try { autoTick(); } catch (e) {} }, 700);
 }
+/** Number fields: apply on Enter, on blur and on change (UXP doesn't fire "change" on Enter reliably). */
+function bindNumber(key, def) {
+  const el = $(key);
+  const apply = () => safe(() => {
+    const { group } = currentGroup();
+    if (!group) return;
+    const v = num(String(el.value).replace(",", "."), def);
+    const s = getSettings(group);
+    if (s && s[key] !== v) update({ [key]: v });
+  });
+  el.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.keyCode === 13) { e.preventDefault(); apply(); } });
+  el.addEventListener("change", apply);
+  el.addEventListener("blur", apply);
+  el.addEventListener("focus", () => { editing = key; });
+  el.addEventListener("blur", () => { if (editing === key) editing = null; });
+}
+let editing = null;
+
 function safe(fn) {
   try { fn(); } catch (e) { busy = false; msg("Error: " + (e && e.message ? e.message : e)); }
 }
