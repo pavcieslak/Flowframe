@@ -359,6 +359,7 @@ function refresh(force) {
   $("status").textContent = (child ? "Inside auto layout: " : "Auto layout: ") + (group.name || "Group") + " · " + children(group).length + " items";
   $("status").className = "al";
   setSeg("segDir", s.dir); setSeg("segAlign", s.align);
+  $("segAlign").classList.toggle("dirV", s.dir === "V"); $("segAlign").classList.toggle("dirH", s.dir !== "V");
   const put = (k, v) => { if (editing !== k) $(k).value = v; };
   put("gap", s.gap); $("justify").value = s.justify;
   ["pt", "pr", "pb", "pl"].forEach((k) => put(k, s[k]));

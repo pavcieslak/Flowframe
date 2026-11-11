@@ -15,6 +15,10 @@
   button { margin: 0 4px 4px 0; }
   .seg { display: flex; gap: 2px; flex: 1; }
   .seg button { flex: 1; margin: 0; padding: 2px 0; }
+  .seg.icons { flex: 0 0 auto; }
+  .seg.icons button { flex: 0 0 auto; width: 32px; height: 26px; padding: 0; display: flex; align-items: center; justify-content: center; border-radius: 4px; }
+  .seg.icons button svg { display: block; }
+  #segAlign.dirV .ih, #segAlign.dirH .iv { display: none; }
   .seg button.on { background: #2680eb; color: #fff; border-color: #2680eb; }
   #status { color: #9a9a9a; margin: 4px 0 8px; min-height: 16px; }
   #status.al { color: #6fb5ff; }
@@ -34,7 +38,7 @@
   <div id="settingsBox" class="hidden">
     <h3>Layout</h3>
     <div class="row"><label>Direction</label>
-      <div class="seg" id="segDir"><button data-v="V">↓ Vertical</button><button data-v="H">→ Horizontal</button></div>
+      <div class="seg icons" id="segDir"><button data-v="V" title="Vertical layout"><svg width="16" height="16" viewBox="0 0 16 16"><rect x="7.25" y="2" width="1.5" height="9" fill="#d0d0d0"/><path d="M4 9 L8 13.5 L12 9 Z" fill="#d0d0d0"/></svg></button><button data-v="H" title="Horizontal layout"><svg width="16" height="16" viewBox="0 0 16 16"><rect x="2" y="7.25" width="9" height="1.5" fill="#d0d0d0"/><path d="M9 4 L13.5 8 L9 12 Z" fill="#d0d0d0"/></svg></button></div>
     </div>
     <div class="row"><label>Gap (pt)</label><input type="text" inputmode="decimal" id="gap" step="1"></div>
     <div class="row"><label>Spacing</label>
@@ -46,7 +50,7 @@
       </select>
     </div>
     <div class="row"><label>Align</label>
-      <div class="seg" id="segAlign"><button data-v="start">Start</button><button data-v="center">Centre</button><button data-v="end">End</button></div>
+      <div class="seg icons" id="segAlign"><button data-v="start" title="Align start (left / top)"><span class="iv"><svg width="16" height="16" viewBox="0 0 16 16"><rect x="1.5" y="1.5" width="1.5" height="13" fill="#d0d0d0"/><rect x="4" y="3.5" width="10.5" height="3.5" rx="0.8" fill="#d0d0d0"/><rect x="4" y="9" width="6.5" height="3.5" rx="0.8" fill="#d0d0d0"/></svg></span><span class="ih"><svg width="16" height="16" viewBox="0 0 16 16"><rect x="1.5" y="1.5" width="13" height="1.5" fill="#d0d0d0"/><rect x="3.5" y="4" width="3.5" height="10.5" rx="0.8" fill="#d0d0d0"/><rect x="9" y="4" width="3.5" height="6.5" rx="0.8" fill="#d0d0d0"/></svg></span></button><button data-v="center" title="Align centre"><span class="iv"><svg width="16" height="16" viewBox="0 0 16 16"><rect x="7.25" y="1.5" width="1.5" height="13" fill="#d0d0d0"/><rect x="2.5" y="3.5" width="11" height="3.5" rx="0.8" fill="#d0d0d0"/><rect x="4.5" y="9" width="7" height="3.5" rx="0.8" fill="#d0d0d0"/></svg></span><span class="ih"><svg width="16" height="16" viewBox="0 0 16 16"><rect x="1.5" y="7.25" width="13" height="1.5" fill="#d0d0d0"/><rect x="3.5" y="2.5" width="3.5" height="11" rx="0.8" fill="#d0d0d0"/><rect x="9" y="4.5" width="3.5" height="7" rx="0.8" fill="#d0d0d0"/></svg></span></button><button data-v="end" title="Align end (right / bottom)"><span class="iv"><svg width="16" height="16" viewBox="0 0 16 16"><rect x="13" y="1.5" width="1.5" height="13" fill="#d0d0d0"/><rect x="1.5" y="3.5" width="10.5" height="3.5" rx="0.8" fill="#d0d0d0"/><rect x="5.5" y="9" width="6.5" height="3.5" rx="0.8" fill="#d0d0d0"/></svg></span><span class="ih"><svg width="16" height="16" viewBox="0 0 16 16"><rect x="1.5" y="13" width="13" height="1.5" fill="#d0d0d0"/><rect x="3.5" y="1.5" width="3.5" height="10.5" rx="0.8" fill="#d0d0d0"/><rect x="9" y="5.5" width="3.5" height="6.5" rx="0.8" fill="#d0d0d0"/></svg></span></button></div>
     </div>
 
     <h3>Padding (pt)</h3>
