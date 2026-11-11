@@ -42,7 +42,7 @@ Flowframe brings that Figma behaviour into InDesign. Select a converted group, g
 - **Fill container:** stretches an item across the cross axis.
 - **Ignore auto layout:** leaves an item out of the layout, like Figma's absolute position.
 - **Use as background frame:** turns an existing rectangle inside the group into the background.
-- **Make text frame hug its text:** switches on InDesign's auto-sizing for that text frame.
+- **Hug text:** switches on InDesign's auto-sizing for that text frame.
 
 ### Workflow
 - **Nested auto layouts:** groups inside groups are laid out from the inside out.
@@ -72,7 +72,7 @@ Flowframe brings that Figma behaviour into InDesign. Select a converted group, g
 
 1. **Add auto layout.** Select a group, or several objects (Flowframe groups them for you), and click **Add auto layout**.
 2. **Adjust the settings.** Change the direction, gap, padding, alignment and sizing in the panel. Every change applies immediately.
-3. **Edit one item.** Select it with the **Direct Selection** tool. The *Selected child* section shows its options: fill, ignore, background and hug text.
+3. **Edit one item.** Select it with the **Direct Selection** tool. The *Selected item* section shows its options: fill, ignore, background and hug text.
 4. **Reorder.** Move an item past its neighbour and click **Reflow**.
 5. **Keep it live (optional).** Tick **Auto-reflow when contents change**.
 6. **Reflow a whole spread.** **Reflow all on this spread** updates every auto layout on the current spread at once.
