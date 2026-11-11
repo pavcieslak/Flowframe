@@ -2,6 +2,12 @@
 
 All notable changes to Flowframe are documented here. The project follows [Semantic Versioning](https://semver.org/).
 
+## [1.2.3] – 2026-11-11
+### Added
+- Plugin icon: a gradient tile showing stacked items in a frame with gap markers. It appears in the Creative Cloud app and the Plugins panel.
+- A new panel tab icon to match.
+- Source SVGs and PNG exports in `docs/brand/`.
+
 ## [1.2.2] – 2026-11-11
 ### Fixed
 - The panel now works when docked narrow: fields, dropdowns and buttons shrink and wrap instead of overflowing the panel. Tested down to 200 px wide.
@@ -36,6 +42,7 @@ All notable changes to Flowframe are documented here. The project follows [Seman
 - Options for a child item: fill container, ignore auto layout (absolute), use as background, hug text.
 - Nested auto layouts, ordering by position, optional auto-reflow, and one undo step per change.
 
+[1.2.3]: https://github.com/pavcieslak/Flowframe/releases/tag/v1.2.3
 [1.2.2]: https://github.com/pavcieslak/Flowframe/releases/tag/v1.2.2
 [1.2.1]: https://github.com/pavcieslak/Flowframe/releases/tag/v1.2.1
 [1.2.0]: https://github.com/pavcieslak/Flowframe/releases/tag/v1.2.0
