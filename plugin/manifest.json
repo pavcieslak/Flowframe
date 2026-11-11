@@ -2,7 +2,7 @@
   "manifestVersion": 5,
   "id": "pl.lucmedia.flowframe",
   "name": "Flowframe",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "main": "index.html",
   "host": {
     "app": "ID",
@@ -16,7 +16,7 @@
         "default": "Flowframe"
       },
       "minimumSize": {
-        "width": 230,
+        "width": 200,
         "height": 300
       },
       "maximumSize": {

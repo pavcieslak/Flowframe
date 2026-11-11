@@ -3,29 +3,35 @@
 <head>
 <meta charset="utf-8">
 <style>
-  body { color: #d6d6d6; font-size: 12px; padding: 10px; margin: 0; background: transparent; }
-  h3 { font-size: 11px; text-transform: uppercase; letter-spacing: .6px; color: #9a9a9a; margin: 14px 0 6px; font-weight: 600; }
-  .row { display: flex; align-items: center; gap: 6px; margin-bottom: 6px; }
-  .row label { width: 62px; color: #b5b5b5; }
+  * { box-sizing: border-box; }
+  body { color: #d6d6d6; font-size: 12px; padding: 8px; margin: 0; background: transparent; overflow-x: hidden; }
+  h3 { font-size: 11px; text-transform: uppercase; letter-spacing: .6px; color: #9a9a9a; margin: 12px 0 6px; font-weight: 600; }
+  .row { display: flex; align-items: center; gap: 6px; margin-bottom: 6px; min-width: 0; }
+  .row label { flex: 0 0 52px; color: #b5b5b5; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .row input, .row select { flex: 1 1 auto; min-width: 0; width: auto; }
+  .row input.num { flex: 0 1 58px; }
   .grid4 { display: flex; gap: 4px; }
-  .grid4 div { display: flex; flex-direction: column; align-items: center; flex: 1; }
-  .grid4 span { font-size: 10px; color: #8a8a8a; }
-  input[type=text] { width: 100%; box-sizing: border-box; }
-  select { flex: 1; }
-  button { margin: 0 4px 4px 0; }
-  .seg { display: flex; gap: 2px; flex: 1; }
-  .seg button { flex: 1; margin: 0; padding: 2px 0; }
+  .grid4 div { display: flex; flex-direction: column; align-items: stretch; flex: 1 1 0; min-width: 0; }
+  .grid4 input { width: 100%; min-width: 0; }
+  .grid4 span { font-size: 10px; color: #8a8a8a; text-align: center; }
+  input[type=text] { min-width: 0; }
+  button { min-width: 0; }
+  .actions { display: flex; flex-wrap: wrap; gap: 4px; }
+  .actions button { flex: 1 1 auto; margin: 0; }
+  .seg { display: flex; gap: 2px; }
   .seg.icons { flex: 0 0 auto; }
-  .seg.icons button { flex: 0 0 auto; min-width: 0; width: 32px; height: 26px; padding: 0; display: flex; align-items: center; justify-content: center; border-radius: 4px; }
+  .seg.icons button { flex: 0 0 auto; min-width: 0; width: 30px; height: 24px; padding: 0; margin: 0; display: flex; align-items: center; justify-content: center; border-radius: 4px; }
   .seg.icons button img { display: block; width: 16px; height: 16px; }
   #segAlign.dirV .ih, #segAlign.dirH .iv { display: none; }
   .seg button.on { background: #2680eb; color: #fff; border-color: #2680eb; }
-  #status { color: #9a9a9a; margin: 4px 0 8px; min-height: 16px; }
+  #status { color: #9a9a9a; margin: 2px 0 8px; min-height: 16px; overflow-wrap: anywhere; }
   #status.al { color: #6fb5ff; }
-  #msg { color: #e8a33d; min-height: 14px; margin-top: 8px; font-size: 11px; }
+  #msg { color: #e8a33d; min-height: 14px; margin-top: 8px; font-size: 11px; overflow-wrap: anywhere; }
   .hidden { display: none; }
-  .check { display: flex; align-items: center; gap: 6px; margin-bottom: 6px; }
-  hr { border: 0; border-top: 1px solid #444; margin: 12px 0; }
+  .check { display: flex; align-items: flex-start; gap: 6px; margin-bottom: 6px; }
+  .check span { flex: 1 1 auto; min-width: 0; }
+  hr { border: 0; border-top: 1px solid #444; margin: 10px 0; }
+  .note { color: #8a8a8a; font-size: 10px; margin-top: 10px; overflow-wrap: anywhere; }
 </style>
 </head>
 <body>
@@ -36,11 +42,11 @@
   </div>
 
   <div id="settingsBox" class="hidden">
-    <h3>Layout</h3>
+    <h3>Layout <span style="text-transform:none;font-weight:400">(values in pt)</span></h3>
     <div class="row"><label>Direction</label>
       <div class="seg icons" id="segDir"><button data-v="V" title="Vertical layout"><img src="icons/dir-v.png" width="16" height="16"></button><button data-v="H" title="Horizontal layout"><img src="icons/dir-h.png" width="16" height="16"></button></div>
     </div>
-    <div class="row"><label>Gap (pt)</label><input type="text" inputmode="decimal" id="gap" step="1"></div>
+    <div class="row"><label>Gap</label><input type="text" inputmode="decimal" id="gap" step="1"></div>
     <div class="row"><label>Spacing</label>
       <select id="justify">
         <option value="start">Packed – start</option>
@@ -53,7 +59,7 @@
       <div class="seg icons" id="segAlign"><button data-v="start" title="Align start (left / top)"><span class="iv"><img src="icons/align-v-start.png" width="16" height="16"></span><span class="ih"><img src="icons/align-h-start.png" width="16" height="16"></span></button><button data-v="center" title="Align centre"><span class="iv"><img src="icons/align-v-center.png" width="16" height="16"></span><span class="ih"><img src="icons/align-h-center.png" width="16" height="16"></span></button><button data-v="end" title="Align end (right / bottom)"><span class="iv"><img src="icons/align-v-end.png" width="16" height="16"></span><span class="ih"><img src="icons/align-h-end.png" width="16" height="16"></span></button></div>
     </div>
 
-    <h3>Padding (pt)</h3>
+    <h3>Padding</h3>
     <div class="grid4">
       <div><input type="text" inputmode="decimal" id="pt"><span>Top</span></div>
       <div><input type="text" inputmode="decimal" id="pr"><span>Right</span></div>
@@ -64,11 +70,11 @@
     <h3>Size</h3>
     <div class="row"><label>Width</label>
       <select id="wMode"><option value="hug">Hug contents</option><option value="fixed">Fixed</option></select>
-      <input type="text" inputmode="decimal" id="w" style="width:64px">
+      <input type="text" inputmode="decimal" id="w" class="num">
     </div>
     <div class="row"><label>Height</label>
       <select id="hMode"><option value="hug">Hug contents</option><option value="fixed">Fixed</option></select>
-      <input type="text" inputmode="decimal" id="h" style="width:64px">
+      <input type="text" inputmode="decimal" id="h" class="num">
     </div>
 
     <h3>Background</h3>
@@ -76,8 +82,7 @@
     <button id="btnBg">Add background frame</button>
 
     <hr>
-    <button id="btnReflow">Reflow</button>
-    <button id="btnRemove">Remove auto layout</button>
+    <div class="actions"><button id="btnReflow">Reflow</button><button id="btnRemove">Remove</button></div>
   </div>
 
   <div id="childBox" class="hidden">
@@ -90,9 +95,9 @@
 
   <hr>
   <div class="check"><input type="checkbox" id="auto"><span>Auto-reflow when contents change</span></div>
-  <button id="btnReflowAll">Reflow all on this spread</button>
+  <div class="actions"><button id="btnReflowAll">Reflow all on spread</button></div>
   <div id="msg"></div>
-  <div style="color:#8a8a8a;font-size:10px;margin-top:10px">Shortcuts: Edit › Keyboard Shortcuts › Plug-ins › Flowframe (e.g. Shift+A to add auto layout)</div>
+  <div class="note">Shortcuts: Edit › Keyboard Shortcuts › Plug-ins › Flowframe (e.g. Shift+A to add auto layout)</div>
 
   <script src="index.js"></script>
 </body>
