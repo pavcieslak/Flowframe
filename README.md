@@ -1,6 +1,6 @@
 # Flowframe
 
-![Version](https://img.shields.io/badge/version-1.1.0-2680eb) ![InDesign](https://img.shields.io/badge/InDesign-18.5%2B-ff3366) ![License](https://img.shields.io/badge/license-MIT-green)
+![Version](https://img.shields.io/badge/version-1.2.0-2680eb) ![InDesign](https://img.shields.io/badge/InDesign-18.5%2B-ff3366) ![License](https://img.shields.io/badge/license-MIT-green)
 
 **Figma-style auto layout for Adobe InDesign.** Group elements, then set the direction, gap, padding, alignment and hug or fixed sizing, the same way you would on a Figma frame.
 
@@ -77,6 +77,25 @@ Flowframe brings that Figma behaviour into InDesign. Select a converted group, g
 
 > **Tip:** to fix a converted page, select each stacked block, add auto layout and type the gap from the original design. All the uneven spacing is corrected in one step.
 
+## Keyboard shortcuts
+
+Flowframe adds four commands to the **Plugins → Flowframe** menu. You can give each one a keyboard shortcut, just like in Figma.
+
+| Command | Suggested shortcut (as in Figma) |
+|---|---|
+| Add auto layout | <kbd>Shift</kbd>+<kbd>A</kbd> |
+| Remove auto layout | <kbd>Alt</kbd>/<kbd>Option</kbd>+<kbd>Shift</kbd>+<kbd>A</kbd> |
+| Reflow selected auto layout | your choice, e.g. <kbd>Ctrl</kbd>/<kbd>Cmd</kbd>+<kbd>Alt</kbd>+<kbd>R</kbd> |
+| Reflow all on this spread | your choice |
+
+To set them up:
+1. In InDesign, open **Edit → Keyboard Shortcuts…**
+2. Create a new set. The *Default* set can't be edited.
+3. Under **Product Area**, choose the plug-ins / Plug-in Menu area and find the **Flowframe** commands.
+4. Click in **New Shortcut**, press your keys and click **Assign**. InDesign warns you if the shortcut is already taken.
+
+> UXP plugins can't register shortcuts on their own, so this one-time setup in InDesign is needed.
+
 ## How it works
 
 Flowframe is a UXP panel plugin written in plain JavaScript, with no build step and no dependencies.
@@ -111,7 +130,7 @@ A `.ccx` file is a zip archive of the plugin folder:
 
 ## Changelog
 
-Current version: **1.1.0**. The full history is in [CHANGELOG.md](CHANGELOG.md).
+Current version: **1.2.0**. The full history is in [CHANGELOG.md](CHANGELOG.md).
 
 ## Author
 

@@ -424,5 +424,25 @@ function safe(fn) {
   try { fn(); } catch (e) { busy = false; msg("Error: " + (e && e.message ? e.message : e)); }
 }
 
+// ---------------------------------------------------------------- menu commands (assign shortcuts in Edit › Keyboard Shortcuts)
+function command(fn) {
+  return { run() { safe(fn); } };
+}
+try {
+  require("uxp").entrypoints.setup({
+    panels: { flowframePanel: { show() {}, hide() {} } },
+    commands: {
+      ffAdd: command(() => {
+        const { group, child } = currentGroup();
+        if (group && !child) { msg("Already an auto layout."); return; }
+        createAL();
+      }),
+      ffRemove: command(removeAL),
+      ffReflow: command(reflowSelected),
+      ffReflowAll: command(reflowAll),
+    },
+  });
+} catch (e) { console.error("Flowframe: entrypoints.setup failed", e); }
+
 wire();
 refresh(true);

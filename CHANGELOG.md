@@ -2,6 +2,10 @@
 
 All notable changes to Flowframe are documented here. The project follows [Semantic Versioning](https://semver.org/).
 
+## [1.2.0] – 2026-11-11
+### Added
+- Menu commands under **Plugins → Flowframe**: *Add auto layout*, *Remove auto layout*, *Reflow selected auto layout* and *Reflow all on this spread*. You can assign keyboard shortcuts to them in **Edit → Keyboard Shortcuts**, e.g. <kbd>Shift</kbd>+<kbd>A</kbd> as in Figma.
+
 ## [1.1.0] – 2026-11-11
 ### Changed
 - **Direction** and **Align** controls are now Figma-style icon buttons.
@@ -22,6 +26,7 @@ All notable changes to Flowframe are documented here. The project follows [Seman
 - Options for a child item: fill container, ignore auto layout (absolute), use as background, hug text.
 - Nested auto layouts, ordering by position, optional auto-reflow, and one undo step per change.
 
+[1.2.0]: https://github.com/pavcieslak/Flowframe/releases/tag/v1.2.0
 [1.1.0]: https://github.com/pavcieslak/Flowframe/releases/tag/v1.1.0
 [1.0.1]: https://github.com/pavcieslak/Flowframe/releases/tag/v1.0.1
 [1.0.0]: https://github.com/pavcieslak/Flowframe/releases/tag/v1.0.0

@@ -2,7 +2,7 @@
   "manifestVersion": 5,
   "id": "pl.lucmedia.flowframe",
   "name": "Flowframe",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "main": "index.html",
   "host": {
     "app": "ID",
@@ -48,6 +48,34 @@
           ]
         }
       ]
+    },
+    {
+      "type": "command",
+      "id": "ffAdd",
+      "label": {
+        "default": "Add auto layout"
+      }
+    },
+    {
+      "type": "command",
+      "id": "ffRemove",
+      "label": {
+        "default": "Remove auto layout"
+      }
+    },
+    {
+      "type": "command",
+      "id": "ffReflow",
+      "label": {
+        "default": "Reflow selected auto layout"
+      }
+    },
+    {
+      "type": "command",
+      "id": "ffReflowAll",
+      "label": {
+        "default": "Reflow all on this spread"
+      }
     }
   ],
   "icons": [
