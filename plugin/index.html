@@ -9,9 +9,9 @@
   .row { display: flex; align-items: center; gap: 6px; margin-bottom: 6px; min-width: 0; }
   .row label { flex: 0 0 52px; color: #b5b5b5; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .row input, .row select { flex: 1 1 auto; min-width: 0; width: auto; }
-  .row input.num { flex: 0 1 58px; }
-  .grid4 { display: flex; gap: 4px; }
-  .grid4 div { display: flex; flex-direction: column; align-items: stretch; flex: 1 1 0; min-width: 0; }
+  .row input.num { flex: none; width: 56px; }
+  .grid4 { display: flex; justify-content: space-between; }
+  .grid4 div { display: flex; flex-direction: column; flex: none; width: 23.5%; min-width: 0; }
   .grid4 input { width: 100%; min-width: 0; }
   .grid4 span { font-size: 10px; color: #8a8a8a; text-align: center; }
   input[type=text] { min-width: 0; }
@@ -22,7 +22,6 @@
   .seg.icons { flex: 0 0 auto; }
   .seg.icons button { flex: 0 0 auto; min-width: 0; width: 30px; height: 24px; padding: 0; margin: 0; display: flex; align-items: center; justify-content: center; border-radius: 4px; }
   .seg.icons button img { display: block; width: 16px; height: 16px; }
-  #segAlign.dirV .ih, #segAlign.dirH .iv { display: none; }
   .seg button.on { background: #2680eb; color: #fff; border-color: #2680eb; }
   #status { color: #9a9a9a; margin: 2px 0 8px; min-height: 16px; overflow-wrap: anywhere; }
   #status.al { color: #6fb5ff; }
@@ -46,7 +45,7 @@
     <div class="row"><label>Direction</label>
       <div class="seg icons" id="segDir"><button data-v="V" title="Vertical layout"><img src="icons/dir-v.png" width="16" height="16"></button><button data-v="H" title="Horizontal layout"><img src="icons/dir-h.png" width="16" height="16"></button></div>
     </div>
-    <div class="row"><label>Gap</label><input type="text" inputmode="decimal" id="gap" step="1"></div>
+    <div class="row"><label>Gap</label><input type="text" id="gap" step="1"></div>
     <div class="row"><label>Spacing</label>
       <select id="justify">
         <option value="start">Packed – start</option>
@@ -56,25 +55,25 @@
       </select>
     </div>
     <div class="row"><label>Align</label>
-      <div class="seg icons" id="segAlign"><button data-v="start" title="Align start (left / top)"><span class="iv"><img src="icons/align-v-start.png" width="16" height="16"></span><span class="ih"><img src="icons/align-h-start.png" width="16" height="16"></span></button><button data-v="center" title="Align centre"><span class="iv"><img src="icons/align-v-center.png" width="16" height="16"></span><span class="ih"><img src="icons/align-h-center.png" width="16" height="16"></span></button><button data-v="end" title="Align end (right / bottom)"><span class="iv"><img src="icons/align-v-end.png" width="16" height="16"></span><span class="ih"><img src="icons/align-h-end.png" width="16" height="16"></span></button></div>
+      <div class="seg icons" id="segAlign"><button data-v="start" title="Align start (left / top)"><img class="alignIcon" data-pos="start" src="icons/align-v-start.png" width="16" height="16"></button><button data-v="center" title="Align centre"><img class="alignIcon" data-pos="center" src="icons/align-v-center.png" width="16" height="16"></button><button data-v="end" title="Align end (right / bottom)"><img class="alignIcon" data-pos="end" src="icons/align-v-end.png" width="16" height="16"></button></div>
     </div>
 
     <h3>Padding</h3>
     <div class="grid4">
-      <div><input type="text" inputmode="decimal" id="pt"><span>Top</span></div>
-      <div><input type="text" inputmode="decimal" id="pr"><span>Right</span></div>
-      <div><input type="text" inputmode="decimal" id="pb"><span>Bottom</span></div>
-      <div><input type="text" inputmode="decimal" id="pl"><span>Left</span></div>
+      <div><input type="text" id="pt"><span>Top</span></div>
+      <div><input type="text" id="pr"><span>Right</span></div>
+      <div><input type="text" id="pb"><span>Bottom</span></div>
+      <div><input type="text" id="pl"><span>Left</span></div>
     </div>
 
     <h3>Size</h3>
     <div class="row"><label>Width</label>
       <select id="wMode"><option value="hug">Hug contents</option><option value="fixed">Fixed</option></select>
-      <input type="text" inputmode="decimal" id="w" class="num">
+      <input type="text" id="w" class="num">
     </div>
     <div class="row"><label>Height</label>
       <select id="hMode"><option value="hug">Hug contents</option><option value="fixed">Fixed</option></select>
-      <input type="text" inputmode="decimal" id="h" class="num">
+      <input type="text" id="h" class="num">
     </div>
 
     <h3>Background</h3>

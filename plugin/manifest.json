@@ -2,7 +2,7 @@
   "manifestVersion": 5,
   "id": "pl.lucmedia.flowframe",
   "name": "Flowframe",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "main": "index.html",
   "host": {
     "app": "ID",

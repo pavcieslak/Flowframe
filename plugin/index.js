@@ -359,12 +359,12 @@ function refresh(force) {
   $("status").textContent = (child ? "Inside auto layout: " : "Auto layout: ") + (group.name || "Group") + " · " + children(group).length + " items";
   $("status").className = "al";
   setSeg("segDir", s.dir); setSeg("segAlign", s.align);
-  $("segAlign").classList.toggle("dirV", s.dir === "V"); $("segAlign").classList.toggle("dirH", s.dir !== "V");
+  document.querySelectorAll("#segAlign img.alignIcon").forEach((im) => { im.src = "icons/align-" + (s.dir === "V" ? "v" : "h") + "-" + im.dataset.pos + ".png"; });
   const put = (k, v) => { if (editing !== k) $(k).value = v; };
   put("gap", s.gap); $("justify").value = s.justify;
   ["pt", "pr", "pb", "pl"].forEach((k) => put(k, s[k]));
   $("wMode").value = s.wMode; $("hMode").value = s.hMode;
-  put("w", Math.round(s.w * 10) / 10); put("h", Math.round(s.h * 10) / 10);
+  put("w", String(Math.round(s.w * 10) / 10)); put("h", String(Math.round(s.h * 10) / 10));
   $("w").disabled = s.wMode !== "fixed"; $("h").disabled = s.hMode !== "fixed";
   const hasBg = children(group).some((k) => label(k, KEY_BG) === "1");
   $("bgInfo").textContent = hasBg ? "Has a background frame (resizes with the layout)." : "No background frame — padding and fixed size are virtual.";

@@ -2,6 +2,12 @@
 
 All notable changes to Flowframe are documented here. The project follows [Semantic Versioning](https://semver.org/).
 
+## [1.2.4] – 2026-11-11
+### Fixed
+- Align icons were still invisible in InDesign. Each button now holds a single image, swapped when the direction changes; UXP didn't render images nested in hidden or visible spans inside buttons.
+- The padding fields overflowed narrow panels. They now use fixed percentage widths.
+- Width and height values display without padded decimals.
+
 ## [1.2.3] – 2026-11-11
 ### Added
 - Plugin icon: a gradient tile showing stacked items in a frame with gap markers. It appears in the Creative Cloud app and the Plugins panel.
@@ -42,6 +48,7 @@ All notable changes to Flowframe are documented here. The project follows [Seman
 - Options for a child item: fill container, ignore auto layout (absolute), use as background, hug text.
 - Nested auto layouts, ordering by position, optional auto-reflow, and one undo step per change.
 
+[1.2.4]: https://github.com/pavcieslak/Flowframe/releases/tag/v1.2.4
 [1.2.3]: https://github.com/pavcieslak/Flowframe/releases/tag/v1.2.3
 [1.2.2]: https://github.com/pavcieslak/Flowframe/releases/tag/v1.2.2
 [1.2.1]: https://github.com/pavcieslak/Flowframe/releases/tag/v1.2.1
